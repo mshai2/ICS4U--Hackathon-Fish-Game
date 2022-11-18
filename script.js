@@ -115,7 +115,10 @@ window.addEventListener('load', function(){
     }
     update(){
       this.x -= this.speed;
-      if (this.x < 0 - this.width) this.markedForDeletion = true;
+      if (this.x < 0 - this.width) {
+        this.markedForDeletion = true;
+      score++;
+      }
     }
   }
 
@@ -131,7 +134,6 @@ window.addEventListener('load', function(){
       enemy.update();
     });
     enemies = enemies.filter(enemy => !enemy.markedForDeletion)
-    score++;
   }
 
   function displayStatusText(context){
